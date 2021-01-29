@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="catalogApp.disciplina.home.title">Disciplinas</span>
+
+        <button id="jh-create-entity" *jhiHasAnyAuthority="'ROLE_ADMIN'" class="btn btn-primary float-right jh-create-entity create-disciplina" [routerLink]="['/disciplina/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="catalogApp.disciplina.home.createLabel">
+            Create a new Disciplina
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="disciplinas?.length === 0">
+        <span jhiTranslate="catalogApp.disciplina.home.notFound">No disciplinas found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="disciplinas && disciplinas.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="denumire"><span jhiTranslate="catalogApp.disciplina.denumire">Denumire</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="descriere"><span jhiTranslate="catalogApp.disciplina.descriere">Descriere</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="puncteCredit"><span jhiTranslate="catalogApp.disciplina.puncteCredit">Puncte Credit</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="anDeStudiu"><span jhiTranslate="catalogApp.disciplina.anDeStudiu">An De Studiu</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let disciplina of disciplinas ;trackBy: trackId">
+                    <td><a [routerLink]="['/disciplina', disciplina.id, 'view']">{{ disciplina.id }}</a></td>
+                    <td>{{ disciplina.denumire }}</td>
+                    <td>{{ disciplina.descriere }}</td>
+                    <td>{{ disciplina.puncteCredit }}</td>
+                    <td>{{ disciplina.anDeStudiu }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/disciplina', disciplina.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'"
+                                    [routerLink]="['/disciplina', disciplina.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" *jhiHasAnyAuthority="'ROLE_ADMIN'" (click)="delete(disciplina)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

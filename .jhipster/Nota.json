@@ -1,0 +1,61 @@
+{
+  "name": "Nota",
+  "fields": [
+    {
+      "fieldName": "numarPuncte",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "100"
+    },
+    {
+      "fieldName": "nota",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required",
+        "min",
+        "max"
+      ],
+      "fieldValidateRulesMin": "1",
+      "fieldValidateRulesMax": "10"
+    },
+    {
+      "fieldName": "data",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "nota",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "disciplina",
+      "otherEntityRelationshipName": "nota",
+      "relationshipName": "disciplina",
+      "otherEntityField": "denumire"
+    }
+  ],
+  "changelogDate": "20210115141550",
+  "entityTableName": "nota",
+  "dto": "no",
+  "pagination": "infinite-scroll",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

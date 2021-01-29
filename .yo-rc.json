@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "ro.pub.elth.itee.oana",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "catalog",
+    "packageName": "ro.pub.elth.itee.oana",
+    "packageFolder": "ro/pub/elth/itee/oana",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NTI4YjRmYTZlMmViMGY3MzViNDRiMzM1MGIyZjQ3YTU0OTg2ZDQ2YjhhODQ1NWNkMGEyZGJjMGUxOTcyOTU5MzQxMDhkNGU4ZGI1NjQyNzZhNGFlOTJjYjM3NmVjMWI3Y2U0YzU4OGQ2OTc4ZmY5ZmQ1MGJjM2UxYmI3NDI1YmI=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1610717925944,
+    "testFrameworks": ["protractor"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en"],
+    "blueprints": []
+  }
+}
