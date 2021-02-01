@@ -37,7 +37,7 @@
     "otherModules": [],
     "enableTranslation": true,
     "nativeLanguage": "en",
-    "languages": ["en"],
+    "languages": ["en", "fr", "ro"],
     "blueprints": [],
     "herokuAppName": "catalog-oana",
     "herokuDeployType": "git",
