@@ -27,6 +27,20 @@ management:
 
 spring:
   devtools:
+
+  #Mail server config
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: jhipsterr.2020@gmail.com
+    password: Password****
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+
     restart:
       enabled: false
     livereload:
@@ -45,11 +59,7 @@ spring:
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
-  mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+
   thymeleaf:
     cache: true
 
